@@ -29,6 +29,8 @@ export const aiTextToSpeechVoiceTypes = z.enum([
   "sage",
   "shimmer",
   "verse",
+  "marin",
+  "cedar",
 ])
 export type AITextToSpeechVoiceType = z.infer<typeof aiTextToSpeechVoiceTypes>
 
@@ -37,7 +39,7 @@ export const aiTextToSpeechSchema = z.object({
   stepType: z.literal(stepTypes.enum.aiTextToSpeech),
   provider: z.literal("openai"),
   model: aiTextToSpeechModelTypes,
-  message: z.string().trim().min(1),
+  message: z.string().trim().min(1).max(4096),
   voiceType: aiTextToSpeechVoiceTypes,
   voiceTone: z.string().trim().optional(),
   outputFieldId: zodFieldReference(),

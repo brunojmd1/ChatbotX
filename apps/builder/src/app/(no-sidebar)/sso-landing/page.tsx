@@ -53,8 +53,10 @@ export default function SsoLandingPage() {
     return () => {
       cancelled = true
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- runs once for this one-shot token
-  }, [])
+    // `router`/`searchParams` are stable across renders in the app router, so
+    // listing them doesn't turn this into a re-running effect — it still only
+    // ever fires once per mount, for this one-shot token.
+  }, [router.replace, searchParams.get])
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-3 text-muted-foreground">

@@ -102,9 +102,11 @@ export async function POST(request: NextRequest) {
     name: input.name,
   })
 
-  const existingMembership = await workspaceMemberService.findByWorkspaceIdAndUserId(
-    { workspaceId: input.workspaceId, userId },
-  )
+  const existingMembership =
+    await workspaceMemberService.findByWorkspaceIdAndUserId({
+      workspaceId: input.workspaceId,
+      userId,
+    })
   if (existingMembership) {
     return NextResponse.json({
       chatbotxUserId: userId,

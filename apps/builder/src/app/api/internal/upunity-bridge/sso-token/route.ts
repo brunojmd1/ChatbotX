@@ -1,5 +1,9 @@
 import { db, eq } from "@chatbotx.io/database/client"
-import { sessionModel, userModel, verificationModel } from "@chatbotx.io/database/schema"
+import {
+  sessionModel,
+  userModel,
+  verificationModel,
+} from "@chatbotx.io/database/schema"
 import { generateRandomString } from "better-auth/crypto"
 import type { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
@@ -34,7 +38,12 @@ const requestSchema = z.object({
   /** Session lifetime once redeemed. Defaults to 12h — long enough for a
    * work session, short enough that a stale UpUnity-side mapping doesn't
    * hand out a near-permanent ChatbotX session. */
-  sessionTtlSeconds: z.number().int().positive().max(60 * 60 * 24 * 7).default(60 * 60 * 12),
+  sessionTtlSeconds: z
+    .number()
+    .int()
+    .positive()
+    .max(60 * 60 * 24 * 7)
+    .default(60 * 60 * 12),
 })
 
 const OTP_TTL_MS = 3 * 60 * 1000 // matches better-auth's oneTimeToken plugin default
@@ -81,5 +90,8 @@ export async function POST(request: NextRequest) {
     })
   })
 
-  return NextResponse.json({ token: otpToken, expiresInSeconds: OTP_TTL_MS / 1000 })
+  return NextResponse.json({
+    token: otpToken,
+    expiresInSeconds: OTP_TTL_MS / 1000,
+  })
 }

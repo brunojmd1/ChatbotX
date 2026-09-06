@@ -26,6 +26,10 @@ const publicRoutes = [
   "/booking",
   "/portal/redeem",
   "/webchat",
+  // UpUnity <-> ChatbotX SSO handoff: the visitor has no ChatbotX session
+  // yet (that's what this page establishes via the one-time token), so it
+  // must render without the sign-in redirect below.
+  "/sso-landing",
   // Trailing slash is deliberate: `isPublicRoute` below is a bare
   // unanchored `startsWith`, so "/t" (no slash) would also match
   // "/templates" and make the authenticated template list world-readable.

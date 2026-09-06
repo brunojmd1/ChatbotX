@@ -1,4 +1,4 @@
-import { db, eq } from "@chatbotx.io/database/client"
+import { db } from "@chatbotx.io/database/client"
 import {
   sessionModel,
   userModel,
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
   const { chatbotxUserId, sessionTtlSeconds } = parsed.data
 
   const user = await db.query.userModel.findFirst({
-    where: eq(userModel.id, chatbotxUserId),
+    where: { id: chatbotxUserId },
     columns: { id: true },
   })
   if (!user) {

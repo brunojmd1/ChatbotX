@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     }
 
     const workspace = await workspaceService.create({
-      data: { name: input.workspaceName },
+      data: { name: input.workspaceName, ownerId: userId },
       createdBy: userId,
     })
 

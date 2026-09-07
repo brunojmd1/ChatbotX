@@ -48,10 +48,13 @@ const buildDefaults = (helpItems: TenantHelpItemModel[]): TenantSettings => {
     appUrl: derived.appUrl,
     wsUrl: derived.wsUrl,
     storageUrl: derived.storageUrl,
-    name: "ChatbotX",
-    logoLightUrl: `${derived.appUrl}/brand/logo_white.svg`,
-    logoDarkUrl: `${derived.appUrl}/brand/logo_black.svg`,
-    faviconUrl: `${derived.appUrl}/brand/icon_black.svg`,
+    name: "UpChat",
+    // No dedicated light-on-dark export yet — same asset for both until one
+    // exists; the wordmark's dark indigo will be low-contrast on a dark
+    // background wherever logoLightUrl is used.
+    logoLightUrl: `${derived.appUrl}/brand/logo_upchat.png`,
+    logoDarkUrl: `${derived.appUrl}/brand/logo_upchat.png`,
+    faviconUrl: `${derived.appUrl}/brand/icon_upchat.png`,
     theme: null,
     customJS: null,
     customCSS: null,

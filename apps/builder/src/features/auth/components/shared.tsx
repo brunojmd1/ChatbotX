@@ -29,6 +29,10 @@ export const AuthHeader = ({ title }: AuthHeaderProps) => {
         {mounted ? (
           <Image
             alt={name}
+            // logoLightUrl/logoDarkUrl are the same asset until a dedicated
+            // light-on-dark export exists (see settings.ts) — invert so the
+            // dark-indigo wordmark stays readable on the dark theme.
+            className={currentTheme === "dark" ? "invert" : undefined}
             height={80}
             priority={true}
             src={logoUrl}

@@ -31,12 +31,16 @@ export const BrandIcon = ({
 
   return (
     <>
-      {/* Logo - shown when expanded */}
+      {/* Logo - shown when expanded.
+          dark:invert: logoLightUrl/logoDarkUrl are the same asset until a
+          dedicated light-on-dark export exists (see settings.ts) — without
+          this, the wordmark's dark indigo is unreadable on the dark theme's
+          sidebar. Matches the collapsed icon below, which already does this. */}
       <Image
         alt={alt}
         className={cn(
           className,
-          "brand-expanded h-8 w-auto group-data-[collapsible=icon]:hidden",
+          "brand-expanded h-8 w-auto group-data-[collapsible=icon]:hidden dark:invert",
         )}
         height={5}
         src={logoUrl}

@@ -20,9 +20,12 @@ export default async function PublicTemplateLayout({
           src={logoDarkUrl}
           width={162}
         />
+        {/* dark:invert: logoLightUrl/logoDarkUrl are the same asset until a
+            dedicated light-on-dark export exists (see settings.ts) — invert
+            so the dark-indigo wordmark stays readable here. */}
         <Image
           alt={name}
-          className="hidden h-12 w-auto dark:block"
+          className="hidden h-12 w-auto dark:block dark:invert"
           height={48}
           priority={true}
           src={logoLightUrl}

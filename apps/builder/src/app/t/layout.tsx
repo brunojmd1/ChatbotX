@@ -18,7 +18,7 @@ export default async function PublicTemplateLayout({
           height={48}
           priority={true}
           src={logoDarkUrl}
-          width={162}
+          width={130}
         />
         {/* dark:invert: logoLightUrl/logoDarkUrl are the same asset until a
             dedicated light-on-dark export exists (see settings.ts) — invert
@@ -29,7 +29,7 @@ export default async function PublicTemplateLayout({
           height={48}
           priority={true}
           src={logoLightUrl}
-          width={162}
+          width={130}
         />
       </header>
 

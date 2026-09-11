@@ -1,7 +1,6 @@
 import { db } from "@chatbotx.io/database/client"
 import {
   sessionModel,
-  userModel,
   verificationModel,
 } from "@chatbotx.io/database/schema"
 import { generateRandomString } from "better-auth/crypto"
